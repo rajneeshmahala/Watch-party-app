@@ -1,14 +1,11 @@
-
 {
-  "name": "watchparty-frontend",
+  "name": "frontend",
   "private": true,
-  "scripts": {
-    "dev": "vite"
-  },
+  "scripts": { "dev": "vite" },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "socket.io-client": "^4.7.2"
+    "socket.io-client": "^4.7.5"
   },
   "devDependencies": {
     "vite": "^5.0.0",

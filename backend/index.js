@@ -8,9 +8,7 @@ const app = express();
 app.use(cors());
 
 const server = http.createServer(app);
-const io = new Server(server, {
-  cors: { origin: "*" }
-});
+const io = new Server(server, { cors: { origin: "*" } });
 
 io.on('connection', socket => {
   socket.on('join-room', room => {
@@ -24,5 +22,4 @@ io.on('connection', socket => {
 });
 
 app.get('/health', (_, res) => res.json({ ok: true }));
-
 server.listen(5000, () => console.log("Backend running on 5000"));

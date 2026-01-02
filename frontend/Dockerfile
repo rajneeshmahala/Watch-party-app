@@ -1,7 +1,7 @@
 
 FROM node:20-alpine
 WORKDIR /app
-COPY . .
+COPY package.json vite.config.js ./
 RUN npm install
-EXPOSE 3000
+COPY src ./src
 CMD ["npm","run","dev"]

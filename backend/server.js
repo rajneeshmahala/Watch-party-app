@@ -13,12 +13,8 @@ const io = new Server(server, { cors: { origin: "*" } });
 
 io.on("connection", socket => {
   socket.on("join-room", roomId => {
-    if (!joinRoom(roomId, socket.id)) {
-      socket.emit("room-full");
-      return;
-    }
+    if (!joinRoom(roomId, socket.id)) return socket.emit("room-full");
     socket.join(roomId);
-    socket.to(roomId).emit("user-joined", socket.id);
   });
 
   socket.on("sync", d => socket.to(d.room).emit("sync", d));
@@ -29,4 +25,4 @@ io.on("connection", socket => {
   });
 });
 
-server.listen(5000, () => console.log("Backend running on 5000"));
+server.listen(5000);

@@ -1,9 +1,7 @@
 
-const express = require("express");
-const http = require("http");
-const { Server } = require("socket.io");
+const express = require('express');
+const cors = require('cors');
 const app = express();
-const server = http.createServer(app);
-const io = new Server(server,{cors:{origin:"*"}});
-io.on("connection",()=>console.log("user connected"));
-server.listen(5000,()=>console.log("backend on 5000"));
+app.use(cors());
+app.get('/health',(req,res)=>res.json({ok:true}));
+app.listen(5000,()=>console.log('Backend running on 5000'));
